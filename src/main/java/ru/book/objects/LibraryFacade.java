@@ -14,6 +14,8 @@ import java.util.List;
 @Scope("singleton")
 public class LibraryFacade {
 
+    private static final String FIELD_CONTENT="content";
+
     @Autowired
     private BookDao bookDao;
 
@@ -42,5 +44,8 @@ public class LibraryFacade {
             case AUTHOR:
                 books = bookDao.getBooks(new Author(searchCriteria.getText()));
         }
+    }
+    public byte[] getContent(Long id){
+        return (byte[]) bookDao.getFieldValue(id,FIELD_CONTENT);
     }
 }
