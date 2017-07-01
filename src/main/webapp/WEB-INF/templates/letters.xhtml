@@ -11,25 +11,18 @@
 </h:head>
 <h:body>
     <ui:composition>
-
-
         <div class="nav">
-
             <h:form id="lettersForm">
                 <ul>
                     <ui:repeat value="${utils.letters}" var="letter">
                         <li>
-                            <p:commandLink value="#{letter}"/>
+                            <p:commandLink value="#{letter}" action="searchByLetter"
+                            actionListener="#{searchCriteria.setLetter(letter)}" ajax="false"/>
                         </li>
                     </ui:repeat>
-
                 </ul>
             </h:form>
-
-
         </div>
-
-
     </ui:composition>
 </h:body>
 </html>

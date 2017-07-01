@@ -71,7 +71,9 @@ public class BookDaoImpl implements BookDao{
     @Transactional
     @Override
     public List<Book> getBooks(Character letter) {
-        return null;
+        List<Book> books = createBookList(createBookCriteria().add(Restrictions.
+                ilike("b.name", letter.toString(), MatchMode.START)));
+        return books;
     }
 
     private DetachedCriteria createBookCriteria() {

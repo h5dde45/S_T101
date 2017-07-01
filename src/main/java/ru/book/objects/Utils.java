@@ -13,10 +13,7 @@ import java.util.Map;
 @Component
 public class Utils {
 
-
     private Map<String, SearchType> searchTypeList = new HashMap<String, SearchType>();
-    private SearchType selectedSearchType = SearchType.AUTHOR;
-
 
     @Autowired
     private MessageSource msg;
@@ -35,10 +32,6 @@ public class Utils {
         searchTypeList.put(msg.getMessage("book_name", null,
                 FacesContext.getCurrentInstance().getViewRoot().getLocale()), SearchType.TITLE);
         return searchTypeList;
-    }
-
-    public SearchType getSelectedSearchType() {
-        return selectedSearchType;
     }
 
     public void setSearchTypeList(Map<String, SearchType> searchTypeList) {
